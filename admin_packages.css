@@ -1,0 +1,119 @@
+.view{
+    display: flex;
+    justify-content: center;
+    
+    
+}
+
+
+
+
+.container{
+    display: flex;
+    flex-direction: column;
+    min-height: 1000px;
+    width: 80%;
+    background-color: darkgray;
+    border: 1px solid;
+    border-radius: 10px;
+    align-items: center;
+
+}
+
+.picturecontainer{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    height: 50%;
+    width: 100%;
+    
+}
+
+.detailscontainer{
+
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    height: 50%;
+    width: 100%;
+
+}
+
+
+.input{
+    margin: 10px;
+    width: 47%;  
+    height: 40px;  
+    font-size: 32px; 
+    border-radius: 5px;  
+    border: 1px solid #ccc; 
+}
+
+.subButton{
+    --color: hsl(0, 0%, 0%);
+    width: 100%;  
+    scale: 95%;
+    height: 60px;  
+    font-size: 32px; 
+    border-radius: 5px;  
+    margin-bottom: 15px;
+    border-radius: 10px;
+    
+    position: relative;
+    isolation: isolate;
+    background: rgb(40, 133, 255);
+}
+
+.subButton::after{
+    content:'';
+    position: absolute;
+    z-index: -1;
+    background: var(--color);
+    inset: 0;
+    
+    scale: 0 1;
+    transform-origin: right;
+    transition: scale 450ms;
+}
+ 
+.subButton:hover::after,
+.subButton:focus-visible::after{
+    transform-origin: left;
+    scale: 1 1;
+}
+
+label{
+
+    font-size: 32px;
+    margin-left: 15px;
+
+}
+
+@media screen and (max-width: 1280px){
+
+    .input{
+        height: 20px;
+        font-size: 16px;
+        width: 80%;
+        
+    }
+
+    .subButton{
+
+        height: 30px;
+        font-size: 16px;
+    }
+
+    .container{
+
+        height: 680px;
+
+    }
+
+    label{
+
+        font-size: 16px;
+    
+    }
+
+}

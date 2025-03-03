@@ -1,0 +1,283 @@
+.container1{
+    
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(180deg, #7158fe, #9d4de6);
+    height: 200px;
+    width: auto;
+    top: 5px;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: white;
+    position: relative;
+    
+}
+
+.container1::after, .pricecontainer::before{
+    content:'';
+    position: absolute;
+    height: 100%;
+    width: 99.25%;
+    background-image: conic-gradient(from var(--angle),black,white);
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    z-index: -1;
+    padding: 7px;
+    animation: 10s spin linear infinite;
+}
+
+.container1::before{
+    filter: blur(1.5rem);
+    opacity: 0.5;
+}
+
+@keyframes spin{
+    from{
+        --angle: 0deg;
+    }
+    to{
+        --angle: 360deg;
+    }
+}
+
+@property --angle{
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
+h1{
+
+    font-size: 64px;
+    margin: 0 auto;
+}
+
+p{
+
+    font-size: 32px;
+    margin: 0 auto;
+}
+
+
+.view{
+
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+
+}
+
+.coupon-card{
+    display: flex;
+    flex-wrap: wrap;
+    background: white;
+    border-radius: 10px;
+    border: 5px solid;
+    height: 550px;
+    width: 400px;
+    margin: 30px;
+    
+    transition: 0.1s;
+
+}
+
+.coupon-card:hover{
+
+    box-shadow: 0 10px 10px 0 rgba(0,0,0,0.5);
+
+}
+
+
+.coupon-card-details{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50%;
+    width: 100%;
+    background: linear-gradient( 360deg, lightblue, magenta);
+    position: relative;
+
+}
+
+.coupon-card-details-bottom{
+    display: flex;
+    flex-direction: column; /* Ensures vertical stacking */
+    
+    align-items: center; /* Center the content horizontally */
+    text-align: center;  /* Center the text within */
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin: 10px;
+    font-size: 32px;
+    height: 50%;
+    width: 100%;
+    position: relative;
+}
+
+.coupon-card-picture{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: white;
+    font-size: 32px;
+    background: linear-gradient(90deg, #7158fe, #9d4de6);
+    height: 70%;
+    width: 80%;
+    transform: rotate(-5deg);
+    position: relative;
+    box-shadow: 0 10px 10px 0 rgba(0,0,0,0.5);
+}
+
+.codeBtn{
+    display: flex;
+    background: lightblue;
+    width: 100%;
+    height: 35%;
+    top: 55%;
+    border-radius: 10px;
+    position: absolute;
+    box-shadow: 0 10px 10px 0 rgba(0,0,0,0.1);
+    color: white;
+    justify-content: center;
+    align-items: center;
+    font-size: 32px;
+    border: 0;
+    transition: 0.3s;
+}
+
+.side-by-side{
+    height: 30%;
+    width: 100%;
+    position: absolute;
+    top:60%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+}
+
+.update{
+
+    border: 0;
+    border-radius: 10%;
+    height: 100%;
+    width: 40%;
+    background-color: lightgreen;
+    font-size: 24px;
+    color: white;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    transition: 1s;
+    z-index: 10; /* Higher z-index to ensure buttons are clickable */
+}
+
+.delete{
+
+    border: 0;
+    border-radius: 10%;
+    height: 100%;
+    width: 40%;
+    background-color: red;
+    font-size: 24px;
+    color: white;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    transition: 1s;
+    z-index: 10; /* Higher z-index to ensure buttons are clickable */
+
+}
+
+.update:hover, .delete:hover{
+
+    scale: 1.1;
+    z-index: 10; /* Higher z-index to ensure buttons are clickable */
+
+}
+
+.codeBtn:hover{
+
+    transform: scaleY(1.05);
+    box-shadow: 0 10px 10px 0 rgba(0,0,0,0.15);
+
+}
+
+
+.circle1, .circle2 {
+
+    background: white;
+    width: 9%;
+    height: 15%;
+    border-radius: 50%;
+    left: 15px;
+    position: absolute;
+    transform: translateY(-50%);
+    transform: rotate(-5deg);
+
+}
+
+
+
+
+.circle1{
+
+    top: 10%;
+
+}
+
+.circle2{
+
+    top: 75%;
+
+}
+
+form{
+    
+    display: flex;
+    justify-content: center;  /* Aligns the button inside the form */
+    margin-top: 120px;
+    align-items: center; /* Align the form content vertically */
+
+}
+
+@media screen and (max-width:1280px){
+    .container1{
+ 
+        text-align: center;
+
+    }
+
+    .coupon-card{
+
+        height: 430px;
+
+    }
+
+    .coupon-card-details-bottom{
+
+        font-size: 24px;
+
+    }
+
+    .coupon-card-picture{
+
+        font-size: 24px;
+
+    }
+
+    h1{
+
+        font-size: 40px;
+        margin: 0 auto;
+    }
+    
+    p{
+    
+        font-size: 24px;
+        margin: 0 auto;
+    }
+}

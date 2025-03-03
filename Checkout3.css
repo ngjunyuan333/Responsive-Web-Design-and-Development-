@@ -1,0 +1,301 @@
+.side-by-side{
+    display: flex;
+    justify-content:space-around;
+}
+
+h1,h2{
+
+    margin-left: 15px;
+    margin-bottom: 5px;
+}
+
+.packageDetails{
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    height: 110px;
+    width: 95%;
+    margin-top: 10px;
+    text-align: center;
+    background: white;
+    border-radius: 10px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    
+    
+}
+
+.viewblock{
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+
+}
+
+.container{
+
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    column-gap:10px;
+    row-gap: 10px;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+
+.pricecontainer{
+
+    
+    border-radius: 10px;
+    min-height: 500px;
+    width: 20%;
+    background-color: darkgray;
+    position: relative;
+    top: 25px;
+    
+    
+}
+
+@property --angle{
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
+.pricecontainer::after, .pricecontainer::before{
+    scale: 100%;
+    content:'';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-image: conic-gradient(from var(--angle), blue,purple,teal);
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    z-index: -1;
+    padding: 7px;
+    border-radius: 10px;
+    animation: 3s spin linear infinite;
+}
+
+.pricecontainer::before{
+    filter: blur(1.5rem);
+    opacity: 0.5;
+
+}
+
+@keyframes spin{
+    from{
+        --angle: 0deg;
+    }
+    to{
+        --angle: 360deg;
+    }
+}
+
+.detailscontainer{
+
+    border: 1px solid;
+    height: 100%;
+    width: 70%;
+    background-color: darkgrey;
+    
+}
+
+
+
+
+
+.Hotel, .Location, .Bus, .Flight{
+    border-radius: 10px;
+    border: 1px solid;
+    height: 140px;
+    width: 11rem;
+    text-align: center;
+    background-size: cover;
+    
+}
+
+
+
+
+.Total {
+    display: flex;
+    border: 1px solid;
+    height: 50px;
+    width: 95%;
+    background-color: whitesmoke;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 20px;
+}
+
+
+    
+.input-card{
+    width: 80%;  
+    height: 40px;  
+    font-size: 32px; 
+    border: 1px solid #ccc;  
+    margin-bottom: 15px;
+    margin-left: 15px;
+    border-radius: 10px;
+}
+
+.input-cardHolder{
+    width: 90%;  
+    height: 40px;  
+    font-size: 32px; 
+    border-radius: 5px;  
+    border: 1px solid #ccc;  
+    margin-bottom: 15px;
+    margin-left: 15px;
+    border-radius: 10px;
+}
+
+.input{
+    width: 200px;  
+    height: 40px;  
+    font-size: 32px; 
+    border-radius: 5px;  
+    border: 1px solid #ccc; 
+    margin-bottom: 15px;
+    margin-left: 15px;
+    border-radius: 10px;
+}
+
+
+
+.subButton{
+    --color: hsl(0, 0%, 0%);
+    width: 100%;  
+    scale: 95%;
+    height: 60px;  
+    font-size: 32px; 
+    border-radius: 5px;  
+    margin-bottom: 15px;
+    border-radius: 10px;
+    
+    position: relative;
+    isolation: isolate;
+    background: #0056b3;
+}
+
+.subButton::after{
+    content:'';
+    position: absolute;
+    z-index: -1;
+    background: var(--color);
+    inset: 0;
+    
+    scale: 0 1;
+    transform-origin: right;
+    transition: scale 450ms;
+}
+ 
+.subButton:hover::after,
+.subButton:focus-visible::after{
+    transform-origin: left;
+    scale: 1 1;
+}
+
+
+
+@media screen and (max-width:1280px){
+    .side-by-side {
+        display: flex;
+        flex-direction: column; 
+        justify-content: center;
+        align-items: center;
+        
+    }
+
+    .detailscontainer {
+        width: 90%; 
+        height: 70%;
+        
+        
+    }
+
+    .pricecontainer{
+        
+        margin-top: 30px;
+        width: 60%;
+        top: 0;
+        margin-bottom: 50px;
+    }
+
+    
+    .packageDetails{
+        width: 100%; 
+        height: 100px;
+        scale: 95% ;
+        font-size: 14px;
+        
+    }
+
+    
+
+    
+    
+    .input-card, .input-cardHolder, .input{
+        width: 80%; 
+        font-size: 15px; 
+        height: 50%;
+    }
+
+    .subButton {
+        height: 50%;
+        font-size: 15px;
+    }
+
+   
+    .pricecontainer::after, .pricecontainer::before {
+        background-size: cover;
+    }
+
+    h1{
+
+        font-size: 16px;
+    }
+
+    h2{
+        font-size: 12px;
+    }
+   
+    img{
+
+        width: 10%;
+    }
+}
+
+
+
+@media screen and (max-width: 660px){
+
+    .Hotel, .Location, .Bus, .Flight{
+        
+        width: 10rem;
+        
+    }
+
+
+}
+
+@media screen and (max-width: 560px){
+
+    .Hotel, .Location, .Bus, .Flight{
+        
+        width: 5rem;
+        
+    }
+
+
+}

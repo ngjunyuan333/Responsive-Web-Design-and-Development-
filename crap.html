@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+/*this part is image part unitl ".arrow:hover{ " */
+.slider-container {
+    width: 80%;
+    height: 500px;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Style for images inside the slider */
+.slider-images {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+/* Style each image */
+.slider-images img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+}
+
+/* Dots below the slider */
+.dots {
+    text-align: center;
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+}
+
+/* Style for individual dots */
+.dots span {
+    height: 15px;
+    width: 15px;
+    margin: 0 5px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+
+/* Active dot */
+.active {
+    background-color: #717171;
+}
+
+/* Add arrows for manual scrolling */
+.arrow {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+}
+
+.arrow.left {
+    left: 0;
+}
+
+.arrow.right {
+    right: 0;
+}
+
+.arrow:hover {
+    background-color: rgba(0,0,0,0.8);
+}
+
+/* This is the button Elliptical button styling */
+.elliptical-btn {
+    background-color: black;      /* Set the background color to black */
+    color: white;                 /* Set the text color to white */
+    border: none;                 /* Remove the border */
+    border-radius: 50px;          /* Make the button elliptical */
+    padding: 10px 30px;           /* Add padding for an elliptical shape */
+    font-size: 16px;              /* Set font size */
+    cursor: pointer;              /* Make the button interactive */
+    transition: background-color 0.3s ease; /* Add smooth hover effect */
+}
+
+/* Hover effect: button becomes gray on hover */
+.elliptical-btn:hover {
+    background-color: #333;       /* Darker gray on hover */
+}
+
+</style>
+
+
+
+<body><center>
+<div class="slider-container">
+    <div class="slider-images">
+        <img src="https://via.placeholder.com/1200x500/FF5733/FFFFFF?text=Upcoming trip" alt="Upcoming trip Image 1">
+        <img src="https://via.placeholder.com/1200x500/33FF57/FFFFFF?text=Current trip" alt="Upcoming trip Image 2">
+        <img src="https://via.placeholder.com/1200x500/5733FF/FFFFFF?text=Upcoming trip" alt="Upcoming trip Image 3">
+    </div>
+
+    <!-- Arrows for manual navigation -->
+    <a class="arrow left">&#10094;</a>
+    <a class="arrow right">&#10095;</a>
+
+    <!-- Dots to indicate the active image -->
+    <div class="dots">
+        <span class="dot" onclick="currentSlide(1)"></span> 
+        <span class="dot" onclick="currentSlide(2)"></span> 
+        <span class="dot" onclick="currentSlide(3)"></span> 
+    </div>
+</div>
+
+<br><br>
+<button class="elliptical-btn" onclick="window.location.href='past_trip_details.php'">NO Past Trip Details</button>
+
+<a href="C:\Users\STRIX\Desktop\MY project\webAssignment\Past_trip_details2.html">
+    <button class="elliptical-btn">Click Me</button>
+</a>
+
+<script>
+    let slideIndex = 0;
+    let slides = document.querySelectorAll(".slider-images img");
+    let dots = document.querySelectorAll(".dot");
+
+    // Function to show the current slide
+    function showSlide(index) {
+        if (index >= slides.length) {
+            slideIndex = 0;
+        } else if (index < 0) {
+            slideIndex = slides.length - 1;
+        } else {
+            slideIndex = index;
+        }
+
+        // Move the slider images
+        document.querySelector(".slider-images").style.transform = "translateX(" + (-slideIndex * 100) + "%)";
+
+        // Update the dots
+        dots.forEach(dot => dot.classList.remove("active"));
+        dots[slideIndex].classList.add("active");
+    }
+
+    // Function to move to the next slide
+    function nextSlide() {
+        showSlide(slideIndex + 1);
+    }
+
+    // Function to move to the previous slide
+    function prevSlide() {
+        showSlide(slideIndex - 1);
+    }
+
+    // Function to jump to a specific slide based on the dot clicked
+    function currentSlide(index) {
+        showSlide(index - 1);
+    }
+
+    // Automatic slide change every 5 seconds
+    setInterval(() => {
+        nextSlide();
+    }, 5000);
+
+    // Add event listeners for manual arrows
+    document.querySelector(".arrow.left").addEventListener("click", prevSlide);
+    document.querySelector(".arrow.right").addEventListener("click", nextSlide);
+
+    // Show the initial slide
+    showSlide(slideIndex);
+
+
+    </script>
+    
+
+
+
+
+    
+</center></body>
+</html>
